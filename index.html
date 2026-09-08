@@ -7,10 +7,10 @@
     <!-- Primary Meta Tags -->
     <title>DevHub & Micro-Tools Suite | Ultimate Developer Utilities & Cheat Sheets</title>
     <meta name="title" content="DevHub & Micro-Tools Suite | Ultimate Developer Utilities & Cheat Sheets">
-    <meta name="description" content="An ultra-fast, modern developer resource hub featuring pure JavaScript micro-tools: JSON Validator, Live Markdown Editor, CSS Gradient & Box Shadow Generator, interactive Git/JS cheat sheets, and tech roadmaps. Free and open-source.">
-    <meta name="keywords" content="developer tools, json formatter, markdown previewer, css gradient generator, box shadow generator, web developer cheat sheets, free developer apis, frontend roadmap, developer hub">
+    <meta name="description" content="An ultra-fast, modern developer resource hub featuring pure JavaScript micro-tools: JSON Validator, Live Markdown Editor, CSS Generators, Base64 & Regex Testers, interactive Git/JS cheat sheets, and tech roadmaps. Free and open-source.">
+    <meta name="keywords" content="developer tools, json formatter, markdown previewer, css gradient generator, box shadow generator, base64 encoder, regex tester, url encoder, web developer cheat sheets, free developer apis, frontend roadmap, developer hub">
     <meta name="robots" content="index, follow">
-    <meta name="author" content="DevHub Team">
+    <meta name="author" content="Tanveer Hussain">
     <link rel="canonical" href="https://vexornull.github.io/devhub/">
 
     <!-- Open Graph / Facebook -->
@@ -78,7 +78,7 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <style>
-        /* Custom Custom Scrollbar & Glassmorphic Utilities */
+        /* Custom Scrollbar & Glassmorphic Utilities */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -109,9 +109,15 @@
             border-bottom: 2px solid #0ea5e9;
             color: #0ea5e9 !important;
         }
-        /* Code Editor Textarea Alignment */
         textarea, code, pre {
             font-family: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
@@ -128,7 +134,7 @@
                     </div>
                     <div>
                         <span class="font-bold text-xl tracking-tight bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent group-hover:text-brand-400 transition-colors">DevHub</span>
-                        <span class="text-xs text-brand-400 font-mono ml-1 px-1.5 py-0.5 rounded bg-brand-500/10 border border-brand-500/20">v2.5</span>
+                        <span class="text-xs text-brand-400 font-mono ml-1 px-1.5 py-0.5 rounded bg-brand-500/10 border border-brand-500/20">v3.0</span>
                     </div>
                 </a>
 
@@ -143,12 +149,10 @@
                 <!-- Action Controls (Theme Toggle & Github Link) -->
                 <div class="flex items-center space-x-3">
                     <button id="themeToggle" aria-label="Toggle Theme" class="p-2.5 rounded-xl bg-gray-800/60 border border-gray-700/50 hover:bg-gray-700/60 text-gray-300 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-brand-500">
-                        <!-- Sun Icon (Light Mode) -->
                         <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        <!-- Moon Icon (Dark Mode) -->
                         <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
                     </button>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-brand-600 rounded-xl hover:bg-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-md shadow-brand-600/30 transition-all">
+                    <a href="https://github.com/vexornull/devhub" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-brand-600 rounded-xl hover:bg-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-md shadow-brand-600/30 transition-all">
                         <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
                         GitHub
                     </a>
@@ -204,8 +208,11 @@
             <div class="flex border-b border-gray-800 overflow-x-auto mb-8 no-scrollbar">
                 <button onclick="switchTool('json')" id="tab-json" class="tool-tab px-6 py-3 font-medium text-sm whitespace-nowrap text-gray-400 hover:text-white transition-colors tab-active">JSON Formatter</button>
                 <button onclick="switchTool('markdown')" id="tab-markdown" class="tool-tab px-6 py-3 font-medium text-sm whitespace-nowrap text-gray-400 hover:text-white transition-colors">Markdown Editor</button>
-                <button onclick="switchTool('gradient')" id="tab-gradient" class="tool-tab px-6 py-3 font-medium text-sm whitespace-nowrap text-gray-400 hover:text-white transition-colors">CSS Gradient Generator</button>
-                <button onclick="switchTool('shadow')" id="tab-shadow" class="tool-tab px-6 py-3 font-medium text-sm whitespace-nowrap text-gray-400 hover:text-white transition-colors">Box Shadow Generator</button>
+                <button onclick="switchTool('base64')" id="tab-base64" class="tool-tab px-6 py-3 font-medium text-sm whitespace-nowrap text-gray-400 hover:text-white transition-colors">Base64 Encoder</button>
+                <button onclick="switchTool('regex')" id="tab-regex" class="tool-tab px-6 py-3 font-medium text-sm whitespace-nowrap text-gray-400 hover:text-white transition-colors">Regex Tester</button>
+                <button onclick="switchTool('gradient')" id="tab-gradient" class="tool-tab px-6 py-3 font-medium text-sm whitespace-nowrap text-gray-400 hover:text-white transition-colors">CSS Gradient</button>
+                <button onclick="switchTool('shadow')" id="tab-shadow" class="tool-tab px-6 py-3 font-medium text-sm whitespace-nowrap text-gray-400 hover:text-white transition-colors">Box Shadow</button>
+                <button onclick="switchTool('url')" id="tab-url" class="tool-tab px-6 py-3 font-medium text-sm whitespace-nowrap text-gray-400 hover:text-white transition-colors">URL Encoder</button>
             </div>
 
             <!-- Tool Container Panel -->
@@ -224,7 +231,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label for="jsonInput" class="block text-xs font-mono text-gray-400 mb-2">INPUT JSON</label>
-                            <textarea id="jsonInput" rows="12" class="w-full p-4 rounded-xl bg-gray-900 border border-gray-800 text-gray-200 font-mono text-sm focus:outline-none focus:ring-1 focus:ring-brand-500 resize-none" placeholder='{"name":"DevHub","type":"utility","features":["JSON","Markdown"]}'></textarea>
+                            <textarea id="jsonInput" rows="12" class="w-full p-4 rounded-xl bg-gray-900 border border-gray-800 text-gray-200 font-mono text-sm focus:outline-none focus:ring-1 focus:ring-brand-500 resize-none" placeholder='{"name":"DevHub","type":"utility","features":["JSON","Markdown","Regex"]}'></textarea>
                         </div>
                         <div>
                             <label for="jsonOutput" class="block text-xs font-mono text-gray-400 mb-2">OUTPUT / STATUS</label>
@@ -243,15 +250,15 @@
                         <div>
                             <label for="markdownInput" class="block text-xs font-mono text-gray-400 mb-2">MARKDOWN INPUT</label>
                             <textarea id="markdownInput" rows="12" class="w-full p-4 rounded-xl bg-gray-900 border border-gray-800 text-gray-200 font-mono text-sm focus:outline-none focus:ring-1 focus:ring-brand-500 resize-none" oninput="updateMarkdown()"># Hello Developer!
-Welcome to **DevHub**.
+Welcome to **DevHub v3.0**.
 
 ## Features
 - Real-time compilation
 - Glassmorphism design
-- Clean markup output
+- Base64 & Regex micro-tools
 
 ```js
-console.log("Hello, World!");
+console.log("Hello, DevHub!");
 ```</textarea>
                         </div>
                         <div>
@@ -261,7 +268,56 @@ console.log("Hello, World!");
                     </div>
                 </div>
 
-                <!-- 3. CSS Gradient Generator -->
+                <!-- 3. Base64 Encoder / Decoder -->
+                <div id="tool-base64" class="tool-panel hidden">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                        <span class="text-sm font-semibold text-brand-400">Base64 Encoder &amp; Decoder</span>
+                        <div class="flex gap-2">
+                            <button onclick="encodeBase64()" class="px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white rounded-lg text-sm font-medium transition-all">Encode</button>
+                            <button onclick="decodeBase64()" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg text-sm font-medium transition-all">Decode</button>
+                            <button onclick="copyToClipboard('base64Output')" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 rounded-lg text-sm font-medium transition-all">Copy</button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="base64Input" class="block text-xs font-mono text-gray-400 mb-2">INPUT STRING</label>
+                            <textarea id="base64Input" rows="12" class="w-full p-4 rounded-xl bg-gray-900 border border-gray-800 text-gray-200 font-mono text-sm focus:outline-none focus:ring-1 focus:ring-brand-500 resize-none" placeholder="Enter plain text or base64 string..."></textarea>
+                        </div>
+                        <div>
+                            <label for="base64Output" class="block text-xs font-mono text-gray-400 mb-2">RESULT STRING</label>
+                            <textarea id="base64Output" readonly rows="12" class="w-full p-4 rounded-xl bg-gray-950 border border-gray-800 text-brand-400 font-mono text-sm focus:outline-none resize-none" placeholder="Converted result will appear here..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Regex Tester Tool -->
+                <div id="tool-regex" class="tool-panel hidden">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                        <span class="text-sm font-semibold text-brand-400">Live Regular Expression Tester</span>
+                        <div class="flex items-center gap-3 text-xs font-mono text-gray-400">
+                            <label class="flex items-center gap-1 cursor-pointer"><input type="checkbox" id="regexFlagG" checked onchange="runRegexTest()" class="rounded bg-gray-900 border-gray-700 accent-brand-500"> Global (g)</label>
+                            <label class="flex items-center gap-1 cursor-pointer"><input type="checkbox" id="regexFlagI" checked onchange="runRegexTest()" class="rounded bg-gray-900 border-gray-700 accent-brand-500"> Case Insensitive (i)</label>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label for="regexPattern" class="block text-xs font-mono text-gray-400 mb-2">REGEX PATTERN</label>
+                            <input type="text" id="regexPattern" value="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" oninput="runRegexTest()" class="w-full p-3 rounded-xl bg-gray-900 border border-gray-800 font-mono text-sm text-brand-400 outline-none focus:ring-1 focus:ring-brand-500" placeholder="e.g. ([0-9]+)">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="regexText" class="block text-xs font-mono text-gray-400 mb-2">TEST STRING</label>
+                                <textarea id="regexText" rows="8" oninput="runRegexTest()" class="w-full p-4 rounded-xl bg-gray-900 border border-gray-800 text-gray-200 font-mono text-sm focus:outline-none focus:ring-1 focus:ring-brand-500 resize-none" placeholder="Enter text to match against regex...">Contact us at support@devhub.io or admin@vexornull.com for queries.</textarea>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono text-gray-400 mb-2">MATCH RESULTS (<span id="regexMatchCount" class="text-brand-400 font-bold">0</span>)</label>
+                                <div id="regexMatches" class="w-full h-52 p-4 rounded-xl bg-gray-950 border border-gray-800 text-gray-300 font-mono text-sm overflow-y-auto space-y-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. CSS Gradient Generator -->
                 <div id="tool-gradient" class="tool-panel hidden">
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         <div class="space-y-4">
@@ -288,7 +344,7 @@ console.log("Hello, World!");
                     </div>
                 </div>
 
-                <!-- 4. Box Shadow Generator -->
+                <!-- 6. Box Shadow Generator -->
                 <div id="tool-shadow" class="tool-panel hidden">
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         <div class="space-y-4">
@@ -313,6 +369,28 @@ console.log("Hello, World!");
                                 <input type="text" id="shadowCSS" readonly class="flex-grow p-3 rounded-lg bg-gray-900 border border-gray-800 font-mono text-sm text-brand-400 outline-none">
                                 <button onclick="copyToClipboard('shadowCSS')" class="px-6 py-3 bg-brand-600 hover:bg-brand-500 text-white rounded-lg text-sm font-medium transition-all">Copy CSS</button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. URL Encoder / Decoder -->
+                <div id="tool-url" class="tool-panel hidden">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                        <span class="text-sm font-semibold text-brand-400">URL Component Encoder &amp; Decoder</span>
+                        <div class="flex gap-2">
+                            <button onclick="encodeURL()" class="px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white rounded-lg text-sm font-medium transition-all">Encode Component</button>
+                            <button onclick="decodeURL()" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg text-sm font-medium transition-all">Decode Component</button>
+                            <button onclick="copyToClipboard('urlOutput')" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 rounded-lg text-sm font-medium transition-all">Copy</button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="urlInput" class="block text-xs font-mono text-gray-400 mb-2">INPUT URL / STRING</label>
+                            <textarea id="urlInput" rows="12" class="w-full p-4 rounded-xl bg-gray-900 border border-gray-800 text-gray-200 font-mono text-sm focus:outline-none focus:ring-1 focus:ring-brand-500 resize-none" placeholder="https://example.com/search?q=developer tools&category=web"></textarea>
+                        </div>
+                        <div>
+                            <label for="urlOutput" class="block text-xs font-mono text-gray-400 mb-2">PROCESSED URL RESULT</label>
+                            <textarea id="urlOutput" readonly rows="12" class="w-full p-4 rounded-xl bg-gray-950 border border-gray-800 text-brand-400 font-mono text-sm focus:outline-none resize-none" placeholder="Encoded/decoded URL will appear here..."></textarea>
                         </div>
                     </div>
                 </div>
@@ -439,9 +517,9 @@ console.log("Hello, World!");
                         <h4 class="text-sm font-semibold text-gray-400 mb-4 self-start">PORTFOLIO REPOSITORIES</h4>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
                             
-                            <a href="#" class="p-4 rounded-xl bg-gray-900/80 border border-gray-800 hover:border-brand-500/50 transition-all group">
+                            <a href="https://github.com/vexornull/devhub" target="_blank" class="p-4 rounded-xl bg-gray-900/80 border border-gray-800 hover:border-brand-500/50 transition-all group">
                                 <div class="flex items-center justify-between mb-2">
-                                    <span class="font-bold text-brand-400 group-hover:underline">DevHub-Suite</span>
+                                    <span class="font-bold text-brand-400 group-hover:underline">devhub</span>
                                     <span class="text-xs px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-400 border border-brand-500/20">Public</span>
                                 </div>
                                 <p class="text-xs text-gray-400 mb-4">Complete production single-file developer micro-tools and resource directory.</p>
@@ -481,7 +559,7 @@ console.log("Hello, World!");
                 <a href="#tools" class="hover:text-brand-400 transition-colors">Tools</a>
                 <a href="#cheatsheets" class="hover:text-brand-400 transition-colors">Cheat Sheets</a>
                 <a href="#roadmaps" class="hover:text-brand-400 transition-colors">Roadmaps</a>
-                <a href="https://github.com" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">GitHub Repository</a>
+                <a href="https://github.com/vexornull/devhub" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">GitHub Repository</a>
             </div>
         </div>
     </footer>
@@ -530,19 +608,30 @@ console.log("Hello, World!");
             ]
         };
 
+        let activeCategory = 'git';
+        let toastTimeout;
+
         // Initialize Application
         document.addEventListener('DOMContentLoaded', () => {
             initTheme();
             updateMarkdown();
             updateGradient();
             updateShadow();
-            renderCheatSheets('git');
+            runRegexTest();
+            renderCheatSheets(activeCategory);
 
-            // Keyboard Shortcut '/' for Global Search
+            // Keyboard Shortcuts
             document.addEventListener('keydown', (e) => {
                 if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
                     e.preventDefault();
                     document.getElementById('globalSearch').focus();
+                } else if (e.key === 'Escape') {
+                    const search = document.getElementById('globalSearch');
+                    if (document.activeElement === search) {
+                        search.value = '';
+                        filterContent('');
+                        search.blur();
+                    }
                 }
             });
 
@@ -559,7 +648,6 @@ console.log("Hello, World!");
             const sunIcon = document.getElementById('sunIcon');
             const moonIcon = document.getElementById('moonIcon');
 
-            // Check saved theme or system preference
             if (localStorage.getItem('theme') === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
                 document.documentElement.classList.remove('dark');
                 document.documentElement.classList.add('light');
@@ -595,6 +683,7 @@ console.log("Hello, World!");
 
         // Category Switching Logic for Cheat Sheets
         function switchCategory(catName) {
+            activeCategory = catName;
             document.querySelectorAll('.cat-tab').forEach(tab => tab.classList.remove('tab-active'));
             document.getElementById(`cat-${catName}`).classList.add('tab-active');
             renderCheatSheets(catName);
@@ -619,7 +708,7 @@ console.log("Hello, World!");
             `).join('');
         }
 
-        // JSON Formatter Tool Functions
+        // 1. JSON Formatter Tool
         function formatJSON() {
             const input = document.getElementById('jsonInput').value;
             const output = document.getElementById('jsonOutput');
@@ -652,7 +741,7 @@ console.log("Hello, World!");
             }
         }
 
-        // Markdown Live Editor Function
+        // 2. Markdown Live Editor Function
         function updateMarkdown() {
             const input = document.getElementById('markdownInput').value;
             const output = document.getElementById('markdownOutput');
@@ -663,7 +752,71 @@ console.log("Hello, World!");
             }
         }
 
-        // CSS Gradient Generator Function
+        // 3. Base64 Encoder / Decoder Functions
+        function encodeBase64() {
+            const input = document.getElementById('base64Input').value;
+            const output = document.getElementById('base64Output');
+            try {
+                output.value = btoa(encodeURIComponent(input).replace(/%([0-9A-F]{2})/g, (match, p1) => String.fromCharCode('0x' + p1)));
+                output.classList.remove('text-red-400');
+                output.classList.add('text-brand-400');
+            } catch (e) {
+                output.value = 'Error encoding string to Base64.';
+                output.classList.add('text-red-400');
+            }
+        }
+
+        function decodeBase64() {
+            const input = document.getElementById('base64Input').value;
+            const output = document.getElementById('base64Output');
+            try {
+                output.value = decodeURIComponent(atob(input.trim()).split('').map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
+                output.classList.remove('text-red-400');
+                output.classList.add('text-brand-400');
+            } catch (e) {
+                output.value = 'Invalid Base64 input string.';
+                output.classList.add('text-red-400');
+            }
+        }
+
+        // 4. Regex Tester Functions
+        function runRegexTest() {
+            const pattern = document.getElementById('regexPattern').value;
+            const text = document.getElementById('regexText').value;
+            const flagG = document.getElementById('regexFlagG').checked ? 'g' : '';
+            const flagI = document.getElementById('regexFlagI').checked ? 'i' : '';
+            const output = document.getElementById('regexMatches');
+            const countLabel = document.getElementById('regexMatchCount');
+
+            if (!pattern) {
+                output.innerHTML = '<span class="text-gray-500">Enter a pattern to test...</span>';
+                countLabel.innerText = '0';
+                return;
+            }
+
+            try {
+                const regex = new RegExp(pattern, `${flagG}${flagI}`);
+                const matches = text.match(regex);
+
+                if (matches) {
+                    countLabel.innerText = matches.length;
+                    output.innerHTML = matches.map((m, idx) => `
+                        <div class="p-2 rounded bg-gray-900 border border-gray-800 text-xs flex justify-between items-center">
+                            <span class="text-brand-400 font-mono">${escapeHTML(m)}</span>
+                            <span class="text-gray-600 text-[10px]">Match #${idx + 1}</span>
+                        </div>
+                    `).join('');
+                } else {
+                    countLabel.innerText = '0';
+                    output.innerHTML = '<span class="text-gray-500">No matches found.</span>';
+                }
+            } catch (e) {
+                countLabel.innerText = '0';
+                output.innerHTML = `<span class="text-red-400">Invalid Regex: ${escapeHTML(e.message)}</span>`;
+            }
+        }
+
+        // 5. CSS Gradient Generator Function
         function updateGradient() {
             const color1 = document.getElementById('color1').value;
             const color2 = document.getElementById('color2').value;
@@ -676,7 +829,7 @@ console.log("Hello, World!");
             document.getElementById('gradientCSS').value = `background: ${gradientString};`;
         }
 
-        // Box Shadow Generator Function
+        // 6. Box Shadow Generator Function
         function updateShadow() {
             const blur = document.getElementById('blur').value;
             const spread = document.getElementById('spread').value;
@@ -690,10 +843,29 @@ console.log("Hello, World!");
             document.getElementById('shadowCSS').value = `box-shadow: ${shadowString};`;
         }
 
+        // 7. URL Encoder / Decoder Functions
+        function encodeURL() {
+            const input = document.getElementById('urlInput').value;
+            const output = document.getElementById('urlOutput');
+            output.value = encodeURIComponent(input);
+        }
+
+        function decodeURL() {
+            const input = document.getElementById('urlInput').value;
+            const output = document.getElementById('urlOutput');
+            try {
+                output.value = decodeURIComponent(input);
+                output.classList.remove('text-red-400');
+            } catch(e) {
+                output.value = 'Malformed URI sequence.';
+                output.classList.add('text-red-400');
+            }
+        }
+
         // Global Search & Filtering
         function filterContent(query) {
             if (!query) {
-                renderCheatSheets('git');
+                renderCheatSheets(activeCategory);
                 return;
             }
 
@@ -726,7 +898,7 @@ console.log("Hello, World!");
         // Copy Utility Functions
         function copyToClipboard(elementId) {
             const element = document.getElementById(elementId);
-            if (element) {
+            if (element && element.value) {
                 navigator.clipboard.writeText(element.value);
                 showToast('Copied to clipboard!');
             }
@@ -740,10 +912,12 @@ console.log("Hello, World!");
         function showToast(msg) {
             const toast = document.getElementById('toast');
             document.getElementById('toastMsg').innerText = msg;
+            
+            clearTimeout(toastTimeout);
             toast.classList.remove('translate-y-20', 'opacity-0');
             toast.classList.add('translate-y-0', 'opacity-100');
             
-            setTimeout(() => {
+            toastTimeout = setTimeout(() => {
                 toast.classList.remove('translate-y-0', 'opacity-100');
                 toast.classList.add('translate-y-20', 'opacity-0');
             }, 2500);
