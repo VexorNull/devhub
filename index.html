@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>DevHub & Micro-Tools Suite | Ultimate Developer Utilities & Cheat Sheets</title>
+    <meta name="title" content="DevHub & Micro-Tools Suite | Ultimate Developer Utilities & Cheat Sheets">
+    <meta name="description" content="An ultra-fast, modern developer resource hub featuring pure JavaScript micro-tools: JSON Validator, Live Markdown Editor, CSS Gradient & Box Shadow Generator, interactive Git/JS cheat sheets, and tech roadmaps. Free and open-source.">
+    <meta name="keywords" content="developer tools, json formatter, markdown previewer, css gradient generator, box shadow generator, web developer cheat sheets, free developer apis, frontend roadmap, developer hub">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="DevHub Team">
+    <link rel="canonical" href="https://vexornull.github.io/devhub/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vexornull.github.io/devhub/">
+    <meta property="og:title" content="DevHub & Micro-Tools Suite | Ultimate Developer Utilities">
+    <meta property="og:description" content="Ultra-fast, production-ready developer resource hub & web micro-tools suite built with modern web technologies. Free and open-source.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vexornull.github.io/devhub/">
+    <meta property="twitter:title" content="DevHub & Micro-Tools Suite | Ultimate Developer Utilities">
+    <meta property="twitter:description" content="Ultra-fast, production-ready developer resource hub & web micro-tools suite built with modern web technologies. Free and open-source.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80">
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "DevHub Micro-Tools Suite",
+      "url": "https://vexornull.github.io/devhub/",
+      "description": "Ultra-fast developer utility suite and cheat sheet directory featuring offline-capable client-side tools.",
+      "applicationCategory": "Developer Application",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "PKR"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Tanveer Hussain"
+      }
+    }
+    </script>
+
+    <!-- Tailwind CSS via CDN with custom configurations -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        },
+                        darkbg: '#0B0F17',
+                        carddark: '#111827',
+                        borderdark: '#1F2937'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Marked.js for Markdown Processing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <style>
+        /* Custom Custom Scrollbar & Glassmorphic Utilities */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.6);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .light .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        .tab-active {
+            border-bottom: 2px solid #0ea5e9;
+            color: #0ea5e9 !important;
+        }
+        /* Code Editor Textarea Alignment */
+        textarea, code, pre {
+            font-family: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body class="bg-darkbg text-gray-100 transition-colors duration-300 min-h-screen flex flex-col font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 glass border-b border-gray-800/80 bg-darkbg/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand-500 rounded-lg p-1">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-cyan-400 flex items-center justify-center font-bold text-xl text-white shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                        &lt;/&gt;
+                    </div>
+                    <div>
+                        <span class="font-bold text-xl tracking-tight bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent group-hover:text-brand-400 transition-colors">DevHub</span>
+                        <span class="text-xs text-brand-400 font-mono ml-1 px-1.5 py-0.5 rounded bg-brand-500/10 border border-brand-500/20">v2.5</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 text-sm font-medium">
+                    <a href="#tools" class="px-3 py-2 rounded-md hover:text-brand-400 hover:bg-gray-800/50 transition-colors">Tools Suite</a>
+                    <a href="#cheatsheets" class="px-3 py-2 rounded-md hover:text-brand-400 hover:bg-gray-800/50 transition-colors">Cheat Sheets</a>
+                    <a href="#roadmaps" class="px-3 py-2 rounded-md hover:text-brand-400 hover:bg-gray-800/50 transition-colors">Roadmaps</a>
+                    <a href="#stats" class="px-3 py-2 rounded-md hover:text-brand-400 hover:bg-gray-800/50 transition-colors">Github Stats</a>
+                </nav>
+
+                <!-- Action Controls (Theme Toggle & Github Link) -->
+                <div class="flex items-center space-x-3">
+                    <button id="themeToggle" aria-label="Toggle Theme" class="p-2.5 rounded-xl bg-gray-800/60 border border-gray-700/50 hover:bg-gray-700/60 text-gray-300 hover:text-white transition-all focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        <!-- Sun Icon (Light Mode) -->
+                        <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <!-- Moon Icon (Dark Mode) -->
+                        <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    </button>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-brand-600 rounded-xl hover:bg-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2 focus:ring-offset-gray-900 shadow-md shadow-brand-600/30 transition-all">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative pt-20 pb-16 overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-900/30 via-darkbg to-darkbg -z-10"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-6">
+                    <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+                    100% Client-Side &amp; Privacy First
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">
+                    Developer Micro-Tools &amp; <br class="hidden sm:inline"/>
+                    <span class="bg-gradient-to-r from-brand-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent">Resource Hub Suite</span>
+                </h1>
+                <p class="max-w-2xl mx-auto text-lg text-gray-400 mb-10">
+                    Essential utility tools, interactive cheat sheets, and curated reference guides built for modern full-stack web developers. Ultra-fast, zero dependencies, privacy-focused.
+                </p>
+
+                <!-- Search Bar -->
+                <div class="max-w-2xl mx-auto relative mb-12">
+                    <div class="relative flex items-center">
+                        <input type="text" id="globalSearch" placeholder="Search tools, cheat sheets, APIs (Press '/' to focus)..." 
+                            class="w-full pl-12 pr-4 py-4 rounded-2xl glass bg-gray-900/80 border border-gray-700/60 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 text-gray-100 placeholder-gray-500 transition-all outline-none text-base shadow-2xl"
+                            aria-label="Search tools and resources">
+                        <svg class="w-6 h-6 text-gray-400 absolute left-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        <kbd class="hidden sm:inline-block absolute right-4 px-2 py-1 text-xs font-semibold text-gray-400 bg-gray-800 border border-gray-700 rounded shadow">/</kbd>
+                    </div>
+                </div>
+
+                <!-- Action CTAs -->
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#tools" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-medium shadow-lg shadow-brand-600/30 transition-all">Explore Utilities</a>
+                    <a href="#roadmaps" class="px-6 py-3 rounded-xl glass hover:bg-gray-800/80 text-gray-200 border border-gray-700 font-medium transition-all">View Roadmaps</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Utility Tools Section -->
+        <section id="tools" class="py-16 border-t border-gray-800/60 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 text-center sm:text-left">
+                <h2 class="text-3xl font-bold tracking-tight mb-2">Micro-Tools Suite</h2>
+                <p class="text-gray-400">High-performance utilities running completely in your browser.</p>
+            </div>
+
+            <!-- Tool Switcher Tabs -->
+            <div class="flex border-b border-gray-800 overflow-x-auto mb-8 no-scrollbar">
+                <button onclick="switchTool('json')" id="tab-json" class="tool-tab px-6 py-3 font-medium text-sm whitespace-nowrap text-gray-400 hover:text-white transition-colors tab-active">JSON Formatter</button>
+                <button onclick="switchTool('markdown')" id="tab-markdown" class="tool-tab px-6 py-3 font-medium text-sm whitespace-nowrap text-gray-400 hover:text-white transition-colors">Markdown Editor</button>
+                <button onclick="switchTool('gradient')" id="tab-gradient" class="tool-tab px-6 py-3 font-medium text-sm whitespace-nowrap text-gray-400 hover:text-white transition-colors">CSS Gradient Generator</button>
+                <button onclick="switchTool('shadow')" id="tab-shadow" class="tool-tab px-6 py-3 font-medium text-sm whitespace-nowrap text-gray-400 hover:text-white transition-colors">Box Shadow Generator</button>
+            </div>
+
+            <!-- Tool Container Panel -->
+            <div class="glass rounded-2xl p-6 border border-gray-800 bg-carddark/50">
+                
+                <!-- 1. JSON Formatter Tool -->
+                <div id="tool-json" class="tool-panel">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                        <span class="text-sm font-semibold text-brand-400">JSON Formatter / Validator</span>
+                        <div class="flex gap-2">
+                            <button onclick="formatJSON()" class="px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white rounded-lg text-sm font-medium transition-all">Format</button>
+                            <button onclick="minifyJSON()" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg text-sm font-medium transition-all">Minify</button>
+                            <button onclick="copyToClipboard('jsonOutput')" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 rounded-lg text-sm font-medium transition-all">Copy</button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="jsonInput" class="block text-xs font-mono text-gray-400 mb-2">INPUT JSON</label>
+                            <textarea id="jsonInput" rows="12" class="w-full p-4 rounded-xl bg-gray-900 border border-gray-800 text-gray-200 font-mono text-sm focus:outline-none focus:ring-1 focus:ring-brand-500 resize-none" placeholder='{"name":"DevHub","type":"utility","features":["JSON","Markdown"]}'></textarea>
+                        </div>
+                        <div>
+                            <label for="jsonOutput" class="block text-xs font-mono text-gray-400 mb-2">OUTPUT / STATUS</label>
+                            <textarea id="jsonOutput" readonly rows="12" class="w-full p-4 rounded-xl bg-gray-950 border border-gray-800 text-brand-400 font-mono text-sm focus:outline-none resize-none" placeholder="Formatted output will appear here..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Markdown Editor Tool -->
+                <div id="tool-markdown" class="tool-panel hidden">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                        <span class="text-sm font-semibold text-brand-400">Live Markdown Previewer</span>
+                        <button onclick="copyToClipboard('markdownInput')" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 rounded-lg text-sm font-medium transition-all">Copy Raw Markdown</button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="markdownInput" class="block text-xs font-mono text-gray-400 mb-2">MARKDOWN INPUT</label>
+                            <textarea id="markdownInput" rows="12" class="w-full p-4 rounded-xl bg-gray-900 border border-gray-800 text-gray-200 font-mono text-sm focus:outline-none focus:ring-1 focus:ring-brand-500 resize-none" oninput="updateMarkdown()"># Hello Developer!
+Welcome to **DevHub**.
+
+## Features
+- Real-time compilation
+- Glassmorphism design
+- Clean markup output
+
+```js
+console.log("Hello, World!");
+```</textarea>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-gray-400 mb-2">LIVE HTML PREVIEW</label>
+                            <div id="markdownOutput" class="w-full h-72 p-4 rounded-xl bg-gray-950 border border-gray-800 text-gray-200 text-sm overflow-y-auto prose prose-invert max-w-none"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. CSS Gradient Generator -->
+                <div id="tool-gradient" class="tool-panel hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="space-y-4">
+                            <div>
+                                <label for="color1" class="block text-xs font-mono text-gray-400 mb-1">COLOR 1</label>
+                                <input type="color" id="color1" value="#0ea5e9" onchange="updateGradient()" class="w-full h-10 rounded-lg bg-gray-900 cursor-pointer border border-gray-800">
+                            </div>
+                            <div>
+                                <label for="color2" class="block text-xs font-mono text-gray-400 mb-1">COLOR 2</label>
+                                <input type="color" id="color2" value="#6366f1" onchange="updateGradient()" class="w-full h-10 rounded-lg bg-gray-900 cursor-pointer border border-gray-800">
+                            </div>
+                            <div>
+                                <label for="angle" class="block text-xs font-mono text-gray-400 mb-1">ANGLE (<span id="angleVal">90</span>deg)</label>
+                                <input type="range" id="angle" min="0" max="360" value="90" oninput="updateGradient()" class="w-full accent-brand-500">
+                            </div>
+                        </div>
+                        <div class="lg:col-span-2 flex flex-col justify-between space-y-4">
+                            <div id="gradientPreview" class="w-full h-40 rounded-xl border border-gray-700/50 shadow-inner"></div>
+                            <div class="flex gap-2">
+                                <input type="text" id="gradientCSS" readonly class="flex-grow p-3 rounded-lg bg-gray-900 border border-gray-800 font-mono text-sm text-brand-400 outline-none">
+                                <button onclick="copyToClipboard('gradientCSS')" class="px-6 py-3 bg-brand-600 hover:bg-brand-500 text-white rounded-lg text-sm font-medium transition-all">Copy CSS</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Box Shadow Generator -->
+                <div id="tool-shadow" class="tool-panel hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <div class="space-y-4">
+                            <div>
+                                <label for="blur" class="block text-xs font-mono text-gray-400 mb-1">BLUR RADIUS (<span id="blurVal">20</span>px)</label>
+                                <input type="range" id="blur" min="0" max="100" value="20" oninput="updateShadow()" class="w-full accent-brand-500">
+                            </div>
+                            <div>
+                                <label for="spread" class="block text-xs font-mono text-gray-400 mb-1">SPREAD RADIUS (<span id="spreadVal">0</span>px)</label>
+                                <input type="range" id="spread" min="-50" max="50" value="0" oninput="updateShadow()" class="w-full accent-brand-500">
+                            </div>
+                            <div>
+                                <label for="shadowColor" class="block text-xs font-mono text-gray-400 mb-1">SHADOW COLOR</label>
+                                <input type="color" id="shadowColor" value="#000000" onchange="updateShadow()" class="w-full h-10 rounded-lg bg-gray-900 cursor-pointer border border-gray-800">
+                            </div>
+                        </div>
+                        <div class="lg:col-span-2 flex flex-col justify-between space-y-4">
+                            <div class="w-full h-40 rounded-xl bg-gray-900 flex items-center justify-center border border-gray-800">
+                                <div id="shadowBox" class="w-24 h-24 bg-brand-500 rounded-xl transition-all"></div>
+                            </div>
+                            <div class="flex gap-2">
+                                <input type="text" id="shadowCSS" readonly class="flex-grow p-3 rounded-lg bg-gray-900 border border-gray-800 font-mono text-sm text-brand-400 outline-none">
+                                <button onclick="copyToClipboard('shadowCSS')" class="px-6 py-3 bg-brand-600 hover:bg-brand-500 text-white rounded-lg text-sm font-medium transition-all">Copy CSS</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Developer Cheat Sheets & Snippets Directory -->
+        <section id="cheatsheets" class="py-16 border-t border-gray-800/60 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 text-center sm:text-left">
+                <h2 class="text-3xl font-bold tracking-tight mb-2">Cheat Sheets &amp; Resources</h2>
+                <p class="text-gray-400">Quick ref guides for commands, syntax, and top public APIs.</p>
+            </div>
+
+            <!-- Category Switcher -->
+            <div class="flex border-b border-gray-800 overflow-x-auto mb-8 no-scrollbar">
+                <button onclick="switchCategory('git')" id="cat-git" class="cat-tab px-6 py-3 font-medium text-sm whitespace-nowrap text-gray-400 hover:text-white transition-colors tab-active">Git Commands</button>
+                <button onclick="switchCategory('css')" id="cat-css" class="cat-tab px-6 py-3 font-medium text-sm whitespace-nowrap text-gray-400 hover:text-white transition-colors">CSS Flexbox &amp; Grid</button>
+                <button onclick="switchCategory('js')" id="cat-js" class="cat-tab px-6 py-3 font-medium text-sm whitespace-nowrap text-gray-400 hover:text-white transition-colors">JS Array Methods</button>
+                <button onclick="switchCategory('apis')" id="cat-apis" class="cat-tab px-6 py-3 font-medium text-sm whitespace-nowrap text-gray-400 hover:text-white transition-colors">Free Public APIs</button>
+            </div>
+
+            <!-- Directory Grid Container -->
+            <div id="cheatSheetGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Content dynamically populated via JS -->
+            </div>
+        </section>
+
+        <!-- Interactive Developer Roadmap Section -->
+        <section id="roadmaps" class="py-16 border-t border-gray-800/60 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 text-center sm:text-left">
+                <h2 class="text-3xl font-bold tracking-tight mb-2">Frontend Developer Roadmap</h2>
+                <p class="text-gray-400">Interactive learning sequence for full-stack frontend engineering.</p>
+            </div>
+
+            <div class="relative border-l-2 border-brand-500/30 ml-4 md:ml-32 space-y-8">
+                <!-- Milestone 1 -->
+                <div class="relative pl-8 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-brand-500 ring-4 ring-darkbg group-hover:scale-125 transition-transform"></div>
+                    <div class="hidden md:block absolute -left-32 top-1 w-24 text-right text-xs font-mono text-brand-400 font-bold">STAGE 01</div>
+                    <div class="glass p-6 rounded-2xl border border-gray-800 bg-carddark/40">
+                        <h3 class="text-xl font-bold mb-2 text-white">Core Web Foundations</h3>
+                        <p class="text-gray-400 text-sm mb-4">Master modern semantic HTML5, CSS layout engines (Flexbox/Grid), accessibility (a11y), and core JavaScript ES6+ execution models.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 border border-gray-700 text-xs font-mono text-gray-300">HTML5 / DOM</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 border border-gray-700 text-xs font-mono text-gray-300">CSS3 / Tailwind</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 border border-gray-700 text-xs font-mono text-gray-300">JavaScript ES6+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milestone 2 -->
+                <div class="relative pl-8 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-cyan-400 ring-4 ring-darkbg group-hover:scale-125 transition-transform"></div>
+                    <div class="hidden md:block absolute -left-32 top-1 w-24 text-right text-xs font-mono text-cyan-400 font-bold">STAGE 02</div>
+                    <div class="glass p-6 rounded-2xl border border-gray-800 bg-carddark/40">
+                        <h3 class="text-xl font-bold mb-2 text-white">Modern Frameworks &amp; Tooling</h3>
+                        <p class="text-gray-400 text-sm mb-4">Component-driven architecture, build tools, state management, and package ecosystem integration.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 border border-gray-700 text-xs font-mono text-gray-300">React / Next.js</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 border border-gray-700 text-xs font-mono text-gray-300">TypeScript</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 border border-gray-700 text-xs font-mono text-gray-300">Vite / Webpack</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milestone 3 -->
+                <div class="relative pl-8 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-darkbg group-hover:scale-125 transition-transform"></div>
+                    <div class="hidden md:block absolute -left-32 top-1 w-24 text-right text-xs font-mono text-indigo-400 font-bold">STAGE 03</div>
+                    <div class="glass p-6 rounded-2xl border border-gray-800 bg-carddark/40">
+                        <h3 class="text-xl font-bold mb-2 text-white">Testing, CI/CD &amp; Performance</h3>
+                        <p class="text-gray-400 text-sm mb-4">Web Vitals optimization, automated testing strategies, continuous integration, and edge deployments.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 border border-gray-700 text-xs font-mono text-gray-300">Jest / Playwright</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 border border-gray-700 text-xs font-mono text-gray-300">GitHub Actions</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 border border-gray-700 text-xs font-mono text-gray-300">Performance Optimization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive GitHub Stats Portfolio Section -->
+        <section id="stats" class="py-16 border-t border-gray-800/60 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 text-center sm:text-left">
+                <h2 class="text-3xl font-bold tracking-tight mb-2">GitHub Integration Showcase</h2>
+                <p class="text-gray-400">Open-source contributions and portfolio activity metrics.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- User Profile Summary Card -->
+                <div class="glass p-6 rounded-2xl border border-gray-800 bg-carddark/50 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-brand-500 to-indigo-500 flex items-center justify-center text-2xl font-bold text-white shadow-md">
+                                TH
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-white">Tanveer Hussain</h3>
+                                <p class="text-sm text-brand-400 font-mono">@Official.Tanveer.70</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-6">
+                            Full-Stack Web Developer &amp; UI Specialist. Passionate about building high-performance web applications and developer tools.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 text-center border-t border-gray-800 pt-4">
+                        <div>
+                            <span class="block text-2xl font-bold text-white">120+</span>
+                            <span class="text-xs text-gray-500 uppercase font-mono">Repositories</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-bold text-brand-400">1.4k</span>
+                            <span class="text-xs text-gray-500 uppercase font-mono">Stars Earned</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GitHub Visual Cards -->
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="glass p-6 rounded-2xl border border-gray-800 bg-carddark/50 flex flex-col items-center justify-center">
+                        <h4 class="text-sm font-semibold text-gray-400 mb-4 self-start">PORTFOLIO REPOSITORIES</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                            
+                            <a href="#" class="p-4 rounded-xl bg-gray-900/80 border border-gray-800 hover:border-brand-500/50 transition-all group">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="font-bold text-brand-400 group-hover:underline">DevHub-Suite</span>
+                                    <span class="text-xs px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-400 border border-brand-500/20">Public</span>
+                                </div>
+                                <p class="text-xs text-gray-400 mb-4">Complete production single-file developer micro-tools and resource directory.</p>
+                                <div class="flex items-center gap-4 text-xs font-mono text-gray-500">
+                                    <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-yellow-400"></span> JavaScript</span>
+                                    <span>★ 480</span>
+                                </div>
+                            </a>
+
+                            <a href="#" class="p-4 rounded-xl bg-gray-900/80 border border-gray-800 hover:border-brand-500/50 transition-all group">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="font-bold text-brand-400 group-hover:underline">Blogger-Core-Engine</span>
+                                    <span class="text-xs px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-400 border border-brand-500/20">Public</span>
+                                </div>
+                                <p class="text-xs text-gray-400 mb-4">Custom optimized XML/HTML templates with dynamic widgets and chat engines.</p>
+                                <div class="flex items-center gap-4 text-xs font-mono text-gray-500">
+                                    <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span> HTML/XML</span>
+                                    <span>★ 320</span>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="border-t border-gray-800 bg-darkbg text-gray-400 text-sm py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded-lg bg-brand-600 flex items-center justify-center font-bold text-xs text-white">&lt;/&gt;</div>
+                <span class="font-bold text-white">DevHub</span> &copy; 2026. Built for Open Source.
+            </div>
+            <div class="flex gap-6">
+                <a href="#tools" class="hover:text-brand-400 transition-colors">Tools</a>
+                <a href="#cheatsheets" class="hover:text-brand-400 transition-colors">Cheat Sheets</a>
+                <a href="#roadmaps" class="hover:text-brand-400 transition-colors">Roadmaps</a>
+                <a href="https://github.com" target="_blank" rel="noopener" class="hover:text-brand-400 transition-colors">GitHub Repository</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification for Copy Actions -->
+    <div id="toast" class="fixed bottom-6 right-6 px-4 py-3 rounded-xl bg-brand-600 text-white font-medium shadow-2xl transition-all duration-300 transform translate-y-20 opacity-0 z-50 flex items-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <span id="toastMsg">Copied to clipboard!</span>
+    </div>
+
+    <!-- Complete Client-Side JavaScript Application Logic -->
+    <script>
+        // Global State & Resource Data
+        const cheatSheetData = {
+            git: [
+                { title: 'git init', desc: 'Initialize a local Git repository in current directory.', category: 'Git' },
+                { title: 'git clone <url>', desc: 'Clone a remote repository to local machine.', category: 'Git' },
+                { title: 'git checkout -b <branch>', desc: 'Create and switch to a new branch.', category: 'Git' },
+                { title: 'git commit -m "<msg>"', desc: 'Commit staged changes with descriptive message.', category: 'Git' },
+                { title: 'git rebase -i main', desc: 'Interactively rebase current branch onto main.', category: 'Git' },
+                { title: 'git stash pop', desc: 'Apply stashed changes and remove from stash list.', category: 'Git' }
+            ],
+            css: [
+                { title: 'display: flex', desc: 'Creates flexbox layout context for child elements.', category: 'CSS Layout' },
+                { title: 'place-items: center', desc: 'Shorthand for align-items & justify-items in Grid.', category: 'CSS Layout' },
+                { title: 'backdrop-filter: blur()', desc: 'Applies graphical effects like blur behind an element.', category: 'CSS Visual' },
+                { title: 'gap: <value>', desc: 'Sets spacing between flex or grid items.', category: 'CSS Layout' },
+                { title: 'grid-template-columns', desc: 'Defines tracks and sizing for CSS Grid columns.', category: 'CSS Layout' },
+                { title: 'clamp(min, val, max)', desc: 'Responsive font-size or sizing calculation function.', category: 'CSS Functions' }
+            ],
+            js: [
+                { title: 'Array.prototype.map()', desc: 'Creates a new array populated with results of calling a function.', category: 'JavaScript' },
+                { title: 'Array.prototype.reduce()', desc: 'Executes user-supplied reducer function on array elements.', category: 'JavaScript' },
+                { title: 'Array.prototype.filter()', desc: 'Creates shallow copy filtered down to passing elements.', category: 'JavaScript' },
+                { title: 'Object.entries(obj)', desc: 'Returns array of given object key-value pairs.', category: 'JavaScript' },
+                { title: 'Promise.allSettled()', desc: 'Returns promise that fulfills after all input promises settle.', category: 'JavaScript' },
+                { title: 'structuredClone()', desc: 'Creates a deep clone of a given value using modern API.', category: 'JavaScript' }
+            ],
+            apis: [
+                { title: 'JSONPlaceholder', desc: 'Free fake REST API for testing and prototyping.', category: 'Public API' },
+                { title: 'OpenWeatherMap', desc: 'Global weather data API with free tier endpoint access.', category: 'Public API' },
+                { title: 'PokeAPI', desc: 'RESTful Pokémon database API for frontend practice.', category: 'Public API' },
+                { title: 'REST Countries', desc: 'Get information about world countries via REST API.', category: 'Public API' },
+                { title: 'DummyJSON', desc: 'REST API providing products, users, posts, and cart data.', category: 'Public API' },
+                { title: 'CoinGecko API', desc: 'Live cryptocurrency prices, volume, and market data API.', category: 'Public API' }
+            ]
+        };
+
+        // Initialize Application
+        document.addEventListener('DOMContentLoaded', () => {
+            initTheme();
+            updateMarkdown();
+            updateGradient();
+            updateShadow();
+            renderCheatSheets('git');
+
+            // Keyboard Shortcut '/' for Global Search
+            document.addEventListener('keydown', (e) => {
+                if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+                    e.preventDefault();
+                    document.getElementById('globalSearch').focus();
+                }
+            });
+
+            // Live Search Filter Listener
+            document.getElementById('globalSearch').addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                filterContent(query);
+            });
+        });
+
+        // Theme Toggle System
+        function initTheme() {
+            const themeToggleBtn = document.getElementById('themeToggle');
+            const sunIcon = document.getElementById('sunIcon');
+            const moonIcon = document.getElementById('moonIcon');
+
+            // Check saved theme or system preference
+            if (localStorage.getItem('theme') === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+                document.documentElement.classList.remove('dark');
+                document.documentElement.classList.add('light');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    document.documentElement.classList.add('light');
+                    localStorage.setItem('theme', 'light');
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                } else {
+                    document.documentElement.classList.remove('light');
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                }
+            });
+        }
+
+        // Tool Switching Logic
+        function switchTool(toolName) {
+            document.querySelectorAll('.tool-panel').forEach(panel => panel.classList.add('hidden'));
+            document.querySelectorAll('.tool-tab').forEach(tab => tab.classList.remove('tab-active'));
+            
+            document.getElementById(`tool-${toolName}`).classList.remove('hidden');
+            document.getElementById(`tab-${toolName}`).classList.add('tab-active');
+        }
+
+        // Category Switching Logic for Cheat Sheets
+        function switchCategory(catName) {
+            document.querySelectorAll('.cat-tab').forEach(tab => tab.classList.remove('tab-active'));
+            document.getElementById(`cat-${catName}`).classList.add('tab-active');
+            renderCheatSheets(catName);
+        }
+
+        // Render Cheat Sheets Cards
+        function renderCheatSheets(category) {
+            const grid = document.getElementById('cheatSheetGrid');
+            const items = cheatSheetData[category] || [];
+            
+            grid.innerHTML = items.map(item => `
+                <div class="glass p-5 rounded-xl border border-gray-800 bg-carddark/30 hover:border-brand-500/40 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-mono px-2 py-0.5 rounded bg-brand-500/10 text-brand-400 border border-brand-500/20">${item.category}</span>
+                            <button onclick="copyRawText('${item.title}')" class="text-gray-500 hover:text-white transition-colors text-xs font-mono">Copy</button>
+                        </div>
+                        <h3 class="font-mono text-sm font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">${escapeHTML(item.title)}</h3>
+                        <p class="text-xs text-gray-400">${escapeHTML(item.desc)}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // JSON Formatter Tool Functions
+        function formatJSON() {
+            const input = document.getElementById('jsonInput').value;
+            const output = document.getElementById('jsonOutput');
+            try {
+                if (!input.trim()) return;
+                const parsed = JSON.parse(input);
+                output.value = JSON.stringify(parsed, null, 2);
+                output.classList.remove('text-red-400');
+                output.classList.add('text-brand-400');
+            } catch (err) {
+                output.value = `Syntax Error: ${err.message}`;
+                output.classList.remove('text-brand-400');
+                output.classList.add('text-red-400');
+            }
+        }
+
+        function minifyJSON() {
+            const input = document.getElementById('jsonInput').value;
+            const output = document.getElementById('jsonOutput');
+            try {
+                if (!input.trim()) return;
+                const parsed = JSON.parse(input);
+                output.value = JSON.stringify(parsed);
+                output.classList.remove('text-red-400');
+                output.classList.add('text-brand-400');
+            } catch (err) {
+                output.value = `Syntax Error: ${err.message}`;
+                output.classList.remove('text-brand-400');
+                output.classList.add('text-red-400');
+            }
+        }
+
+        // Markdown Live Editor Function
+        function updateMarkdown() {
+            const input = document.getElementById('markdownInput').value;
+            const output = document.getElementById('markdownOutput');
+            if (typeof marked !== 'undefined') {
+                output.innerHTML = marked.parse(input);
+            } else {
+                output.innerText = input;
+            }
+        }
+
+        // CSS Gradient Generator Function
+        function updateGradient() {
+            const color1 = document.getElementById('color1').value;
+            const color2 = document.getElementById('color2').value;
+            const angle = document.getElementById('angle').value;
+            
+            document.getElementById('angleVal').innerText = angle;
+            const gradientString = `linear-gradient(${angle}deg, ${color1}, ${color2})`;
+            
+            document.getElementById('gradientPreview').style.background = gradientString;
+            document.getElementById('gradientCSS').value = `background: ${gradientString};`;
+        }
+
+        // Box Shadow Generator Function
+        function updateShadow() {
+            const blur = document.getElementById('blur').value;
+            const spread = document.getElementById('spread').value;
+            const color = document.getElementById('shadowColor').value;
+            
+            document.getElementById('blurVal').innerText = blur;
+            document.getElementById('spreadVal').innerText = spread;
+            
+            const shadowString = `0px 10px ${blur}px ${spread}px ${color}80`;
+            document.getElementById('shadowBox').style.boxShadow = shadowString;
+            document.getElementById('shadowCSS').value = `box-shadow: ${shadowString};`;
+        }
+
+        // Global Search & Filtering
+        function filterContent(query) {
+            if (!query) {
+                renderCheatSheets('git');
+                return;
+            }
+
+            const allItems = [...cheatSheetData.git, ...cheatSheetData.css, ...cheatSheetData.js, ...cheatSheetData.apis];
+            const filtered = allItems.filter(item => 
+                item.title.toLowerCase().includes(query) || 
+                item.desc.toLowerCase().includes(query) ||
+                item.category.toLowerCase().includes(query)
+            );
+
+            const grid = document.getElementById('cheatSheetGrid');
+            if (filtered.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-8 text-gray-500 font-mono text-sm">No matching commands or tools found for "${escapeHTML(query)}"</div>`;
+            } else {
+                grid.innerHTML = filtered.map(item => `
+                    <div class="glass p-5 rounded-xl border border-gray-800 bg-carddark/30 hover:border-brand-500/40 transition-all flex flex-col justify-between group">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-mono px-2 py-0.5 rounded bg-brand-500/10 text-brand-400 border border-brand-500/20">${item.category}</span>
+                                <button onclick="copyRawText('${item.title}')" class="text-gray-500 hover:text-white transition-colors text-xs font-mono">Copy</button>
+                            </div>
+                            <h3 class="font-mono text-sm font-bold text-white mb-2 group-hover:text-brand-400 transition-colors">${escapeHTML(item.title)}</h3>
+                            <p class="text-xs text-gray-400">${escapeHTML(item.desc)}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Copy Utility Functions
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                navigator.clipboard.writeText(element.value);
+                showToast('Copied to clipboard!');
+            }
+        }
+
+        function copyRawText(text) {
+            navigator.clipboard.writeText(text);
+            showToast('Copied command!');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2500);
+        }
+
+        // Helper Utility to Prevent XSS Injection
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
+        }
+    </script>
+</body>
+</html>
