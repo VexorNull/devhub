@@ -2,8 +2,6 @@
 
 An ultra-fast, modern, client-side developer utility hub and resource directory built with pure JavaScript and Tailwind CSS. Designed for full-stack developers, frontend engineers, and open-source enthusiasts.
 
-![DevHub Banner](https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80)
-
 ---
 
 ## ✨ Features
@@ -51,6 +49,20 @@ An ultra-fast, modern, client-side developer utility hub and resource directory 
 
 No build step or Node.js environment is required!
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/vexornull/devhub.git
+git clone https://github.com/vexornull/devhub.git && cd devhub
+
+Simply open `index.html` directly in your browser or through VS Code Live Server.
+
+---
+
+## 👨‍💻 Author
+
+**Tanveer Hussain**
+- **GitHub:** [@vexornull](https://github.com/vexornull)
+- **Live Demo:** [DevHub Application](https://vexornull.github.io/devhub/)
+
+---
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
